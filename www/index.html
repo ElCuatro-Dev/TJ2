@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FARMAJUY - De turno</title>		
+        <meta HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/mobilemenu.css"/>
+        <script type="text/javascript" src="cordova.js"></script>        
+		<script src="js/jquery-2.1.1.min.js"></script>
+        <script>
+        	$( document ).ready(function(e) { 
+        		$(".nav-button").click(function () {
+					$(".nav-button,.primary-nav").toggleClass("open");
+				}); 
+				
+				/*var data = {
+					"latlng": latlng,							
+					"key": "4LP4RG4T4S",
+					"localidad": 332473 //JUJUY
+				};*/			
+						
+				//data = $(this).serialize() + "&" + $.param(data);
+				$.ajax({
+					type: "GET",
+					dataType: "jsonp",
+					url: "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?",
+					//data: data,
+					success: function(response) {
+						$('#info-update').html('i: '+response.respData.fecha);
+						/*if (response.resultado == 200) {
+							$.each(response.data, function( key, value ) {
+								var contenido = "<div class='marker'><span class='nom'>"+value.nom+"</span><br />Dirección:"+value.dir+"<br />Teléfono: <a href='tel:388"+value.tel+"'>"+value.tel+"</a><br /><a href='info.html?fid="+value.id+"&lat="+lat+"&lon="+lon+"' class='masinfo'>Más info</a>"+"</div>";
+								var image = "http://services.dosclics.com.ar/app/farmacia/img/"+value.img;
+								var marker = new google.maps.Marker({
+									position: new google.maps.LatLng(value.lat, value.lon),
+									map: map,										
+									icon: image
+								});
+								(function(marker, contenido){						
+									google.maps.event.addListener(marker, 'click', function() {
+										infowindow.setContent(contenido);											
+										infowindow.open(map, marker);											
+									});
+								})(marker,contenido);
+							});
+						}*/
+					},
+					error: function (responseData, textStatus, errorThrown) {
+						$('info-update').html('¡Oops! Algo falló.'+errorThrown);
+						//console.log(responseData);
+					} 
+				});				
+			});
+        </script>
+    </head>
+
+    <body>
+    	<div id="head"> 
+            <a href="index.html"><div class="logotodojujuy"></div></a>
+            <div class="nav-menu"></div>
+        </div>
+        <div id="fecha_actual"></div>
+        <div id="menu-nuevo">
+            <ul class="secciones">
+                <li class="nav-titulo">SECCIONES</li>                    
+            </ul>
+            <ul>
+                <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="{$smarty.const.URL_ABS_MOVIL}en-vivo" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
+                <li class="nav-titulo nav-titulo-3"><a title="HOY" href="{$smarty.const.URL_ABS_MOVIL}" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
+                <li class="nav-titulo nav-titulo-2">SERVICIOS</li>
+                <li class="der"><a href="cines">CARTELERA DE CINE</a></li>
+                <li class="der"><a href="farmacias">FARMACIAS DE TURNO</a></li>
+                <li class="der"><a href="ampliar-clima">CLIMA</a></li>
+                <li class="der"><a href="cotizacion">COTIZACI&Oacute;N MONEDAS</a></li>
+                <li class="der"><a href="horoscopo">HOR&Oacute;SCOPO</a></li>
+                <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
+                <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
+                <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+            </ul>            
+        </div>
+        <div id="footer"><div id="info-update">.:. Espera mientras se obtiene la información</div>TodoJujuy Móvil v2</div>
+    </body>
+</html>
