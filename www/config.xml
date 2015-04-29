@@ -1,7 +1,7 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ar.com.dosclics.farmajuy" version="1.0.2">
-  <name>FarmaJuy</name>
-  <description>Localizador de Farmacias de turno para San Salvador de Jujuy</description>
-  <author href="http://dosclics.com.ar" email="info@dosclics.com.ar">DosClics</author>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.todojujuy.todojujuy" version="2.0">
+  <name>TodoJujuy</name>
+  <description>Toda la información de Jujuy y el mundo. Noticias las 24 horas.</description>
+  <author href="http://todojujuy.com" email="ofunes@unicable.com.ar">TodoJujuy.com</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
