@@ -27,6 +27,7 @@
 					url: "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?",
 					//data: data,
 					success: function(response) {
+						alert('ok');
 						$('#info-update').html('i: '+response.respData.fecha);
 						/*if (response.resultado == 200) {
 							$.each(response.data, function( key, value ) {
