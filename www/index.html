@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>FARMAJUY - De turno</title>		
+        <title>TJ</title>		
         <meta HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1" />
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/index.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/mobilemenu.css"/>
         <script type="text/javascript" src="cordova.js"></script>        
 		<script src="js/jquery-2.1.1.min.js"></script>
         <script>
         	$( document ).ready(function(e) { 
-        		$(".nav-button").click(function () {
-					$(".nav-button,.primary-nav").toggleClass("open");
+        		$('.nav-menu').click(function(e) {			
+					$('#menu-nuevo').toggle();
 				}); 
 				
 				/*var data = {
@@ -21,6 +21,7 @@
 				};*/			
 						
 				//data = $(this).serialize() + "&" + $.param(data);
+				alert('json sig');
 				$.ajax({
 					type: "GET",
 					dataType: "jsonp",
@@ -51,7 +52,8 @@
 						$('info-update').html('¡Oops! Algo falló.'+errorThrown);
 						//console.log(responseData);
 					} 
-				});				
+				});	
+				alert('end');			
 			});
         </script>
     </head>
