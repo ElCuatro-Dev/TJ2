@@ -22,14 +22,16 @@
 						
 				//data = $(this).serialize() + "&" + $.param(data);
 				alert('json sig');
+				
 				$.ajax({
 					type: "GET",
 					dataType: "jsonp",
-					url: "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?",
+					//url: "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?",
+					url: "http://services.dosclics.com.ar/app/farmacia/farmacias-de-turno-v2.php?key=4LP4RG4T4S&localidad=332473&latlng=-24.1868209,-65.2990974&callback=?",
 					//data: data,
 					success: function(response) {
 						alert('ok');
-						$('#info-update').html('i: '+response.respData.fecha);
+						$('#info-update').html('i: '+response.info);
 						/*if (response.resultado == 200) {
 							$.each(response.data, function( key, value ) {
 								var contenido = "<div class='marker'><span class='nom'>"+value.nom+"</span><br />Dirección:"+value.dir+"<br />Teléfono: <a href='tel:388"+value.tel+"'>"+value.tel+"</a><br /><a href='info.html?fid="+value.id+"&lat="+lat+"&lon="+lon+"' class='masinfo'>Más info</a>"+"</div>";
